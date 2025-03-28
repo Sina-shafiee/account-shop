@@ -219,6 +219,12 @@
     }
 }
 
+input:-webkit-autofill {
+    transition:
+        color 99999s,
+        background-color 99999s;
+}
+
 @layer base {
     * {
         @apply border-border;

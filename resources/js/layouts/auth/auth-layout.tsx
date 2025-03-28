@@ -21,7 +21,7 @@ export default function AuthLayout({
             </Link>
             <div className="flex w-full max-w-md flex-col gap-2 sm:mt-4">
                 <div className="flex flex-col gap-6">
-                    <Card className="rounded-xl border-none py-4 md:border md:py-6">
+                    <Card className="rounded-xl border-none pt-4 pb-0 md:border md:py-6">
                         <CardHeader className="px-10 pb-0 text-center md:pt-8">
                             <CardTitle className="text-xl">{title}</CardTitle>
                             <CardDescription>{description}</CardDescription>
