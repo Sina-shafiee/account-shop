@@ -43,6 +43,8 @@ class User extends Authenticatable implements HasMedia
     {
         return [
             'password' => 'hashed',
+            'created_at'=>'datetime',
+            'update_at'=>'datetime'
         ];
     }
 
