@@ -14,5 +14,7 @@ Route::middleware('guest')->group(function () {
         ->name('login.store');
 });
 
-Route::post('logout', [AuthenticationController::class, 'destroy'])
-    ->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::post('logout', [AuthenticationController::class, 'destroy'])
+        ->name('logout');
+});

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->configureInertiaHistory();
+    }
+
+    /**
+     * Configures Inertia to encrypt its history state.
+     */
+    private function configureInertiaHistory(): void
+    {
+        Inertia::encryptHistory(true);
     }
 }

@@ -5,8 +5,8 @@ import { LoaderCircle } from 'lucide-react';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { InputError } from '@/components/ui/input-error';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import { Label } from '@/components/ui/label';
 
@@ -72,7 +72,7 @@ export function OtpLoginForm({ phone_number }: OtpLoginFormProps) {
                     {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
                     ورود
                 </Button>
-                <div className="-mt-4">
+                <div>
                     <Button
                         type="button"
                         variant="link"

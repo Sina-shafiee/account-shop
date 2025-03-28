@@ -1,14 +1,13 @@
 import { Head, useForm, usePage } from '@inertiajs/react';
 import * as React from 'react';
 
-import AuthLayout from '@/layouts/auth-layout';
+import AuthLayout from '@/layouts/auth/auth-layout';
 
 import { OtpLoginForm } from '@/components/form/auth/otp-login-form';
 import { PasswordLoginForm } from '@/components/form/auth/password-login-form';
 import { PhoneNumberForm } from '@/components/form/auth/phone-number-form';
 import { RegisterForm } from '@/components/form/auth/register-form';
 
-import { cn } from '@/lib/utils';
 import { SharedData } from '@/types';
 
 enum LoginStatus {
@@ -32,15 +31,11 @@ interface LoginFormProps {
     loginType?: string;
 }
 
-interface LoginProps {
-    message?: string;
-}
-
 const LoginForm: React.FC<LoginFormProps> = ({ loginType, phone_number }): React.ReactElement => {
     return loginType === LoginType.OTP ? <OtpLoginForm phone_number={phone_number} /> : <PasswordLoginForm phone_number={phone_number} />;
 };
 
-export default function Login({ message }: LoginProps): React.ReactElement {
+export default function Login(): React.ReactElement {
     const { data, setData, post, processing, errors } = useForm<PhoneNumberFormData>('login_phone_number', {
         phone_number: '',
     });

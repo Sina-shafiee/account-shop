@@ -1,10 +1,12 @@
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { useForm, usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import * as React from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { InputError } from '@/components/ui/input-error';
+import { Label } from '@/components/ui/label';
+
 import { SharedData } from '@/types';
 
 interface PasswordLoginForm {
@@ -24,10 +26,9 @@ export function PasswordLoginForm({ phone_number }: Props) {
 
     const message = usePage<SharedData>().props.message as string;
 
-
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        post(route('login.store'));
+        post('login');
     };
 
     return (
@@ -46,16 +47,15 @@ export function PasswordLoginForm({ phone_number }: Props) {
                         tabIndex={1}
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
-                        placeholder="*******"
                     />
-                    <InputError message={errors.phone_number ?? message ?? ""} />
+                    <InputError message={errors.phone_number ?? message ?? ''} />
                 </div>
-                <Button type="submit" className="mt-4 w-full" tabIndex={2} disabled={processing}>
+                <Button type="submit" className="mt-2 w-full" tabIndex={2} disabled={processing}>
                     {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
                     ورود
                 </Button>
-                <div className='flex justify-center h-8'>
-                    <Button variant="link" type='button' className="cursor-pointer p-0 text-sm">
+                <div className="flex h-8 justify-center">
+                    <Button variant="link" type="button" className="p-0 text-sm">
                         ورود با کد یکبار مصرف
                     </Button>
                 </div>

@@ -72,7 +72,9 @@ class AuthenticationController extends Controller
             RateLimiter::clear($key);
             $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard'));
+            Inertia::clearHistory();
+
+            return redirect()->intended(route('home'));
         }
 
         $this->ensureWithinRateLimit($request, $phoneNumber, 'password-login');
